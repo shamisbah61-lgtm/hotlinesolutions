@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GlobalWay Services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0a0a0a',    // true carbon black
+            secondary: '#2a2a2a',  // graphite gray (structure, cards)
+            accent: '#8fd3f4',     // cold ice blue (very controlled use)
+            dark: '#000000',
+            light: '#e5e7eb'
+
+
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' }
+            },
+            slideDown: {
+              '0%': { transform: 'translateY(-20px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' }
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(20px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' }
+            },
+            slideLeft: {
+              '0%': { transform: 'translateX(20px)', opacity: '0' },
+              '100%': { transform: 'translateX(0)', opacity: '1' }
+            },
+            slideRight: {
+              '0%': { transform: 'translateX(-20px)', opacity: '0' },
+              '100%': { transform: 'translateX(0)', opacity: '1' }
+            },
+            bounce: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' }
+            },
+            scaleIn: {
+              '0%': { transform: 'scale(0.9)', opacity: '0' },
+              '100%': { transform: 'scale(1)', opacity: '1' }
+            }
+          },
+          animation: {
+            fadeIn: 'fadeIn 0.6s ease-in-out',
+            slideDown: 'slideDown 0.6s ease-out',
+            slideUp: 'slideUp 0.6s ease-out',
+            slideLeft: 'slideLeft 0.6s ease-out',
+            slideRight: 'slideRight 0.6s ease-out',
+            bounce: 'bounce 2s infinite',
+            scaleIn: 'scaleIn 0.6s ease-out'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="font-['Segoe_UI',Arial,sans-serif]  bg-gradient-to-r from-secondary to-primary ">
+
+  <!-- HEADER - Same Gradient as Hero -->
+  <header
+    class="sticky top-6 z-50 mx-4 rounded-xl bg-gradient-to-r from-secondary to-primary shadow-xl border  transition-all duration-300">
+    <div class="max-w-8xl mx-auto px-6 flex items-center justify-between py-3">
+      <!-- Logo -->
+      <a href="#home" class="flex items-center gap-3 hover:opacity-80 transition">
+        <img src="./logo.png" class="drop-shadow-lg cursor-pointer w-24 md:w-32" alt="GlobalWay Logo">
+      </a>
+
+      <!-- Nav -->
+      <nav class="hidden md:flex flex-row items-center gap-8">
+        <a href="#services" class="text-white  transition font-medium relative group">
+          Services
+          <span
+            class="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a href="#about" class="text-white  transition font-medium relative group">
+          About
+          <span
+            class="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a href="contact.html" class="text-white  transition font-medium relative group">
+          Contact
+          <span
+            class="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a href="contact.html"
+          class=" text-white px-6 py-2 hover:text-black rounded-lg font-bold hover:bg-white hover:shadow-lg transition duration-300">
+          Get Started
+        </a>
+      </nav>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button id="mobileMenuBtn" class="text-white focus:outline-none text-2xl">
+          ☰
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <nav id="mobileMenu" class="md:hidden overflow-hidden
+         h-0 opacity-0 -translate-y-2
+         transition-all duration-1000 ease-in-out
+         bg-gradient-to-b from-primary to-black-1000
+         px-6 py-0 space-y-3">
+
+      <a href="#services" class="block text-white py-2 border-b border-white/10">Services</a>
+      <a href="#about" class="block text-white py-2 border-b border-white/10">About</a>
+      <a href="contact.html" class="block text-white py-2 border-b border-white/10">Contact</a>
+      <a href="contact.html" class="block bg-white text-primary px-4 py-2 rounded-lg font-bold text-center mt-3">
+        Get Started
+      </a>
+    </nav>
+
+  </header>
+
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('h-56');
+      mobileMenu.classList.toggle('opacity-100');
+      mobileMenu.classList.toggle('translate-y-0');
+
+      mobileMenu.classList.toggle('h-0');
+      mobileMenu.classList.toggle('opacity-0');
+      mobileMenu.classList.toggle('-translate-y-2');
+    });
+
+    // Close menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('h-56', 'opacity-100', 'translate-y-0');
+        mobileMenu.classList.add('h-0', 'opacity-0', '-translate-y-2');
+      });
+    });
+  </script>
+
+
+  <!-- PREMIUM HERO -->
+  <section class="relative min-h-[105vh] flex items-center justify-center text-center overflow-hidden">
+    <!-- Gradient background -->
+    <div class="absolute inset-0 bg-gradient-to-r from-secondary to-primary -z-10"></div>
+
+    <!-- Abstract floating shapes -->
+    <div class="absolute top-[-50px] left-[-50px] w-80 h-80 bg-white/10 rounded-full animate-pulse-slow"></div>
+    <div class="absolute bottom-[-50px] right-[-50px] w-96 h-96 bg-white/5 rounded-full blur-3xl animate-spin-slow">
+    </div>
+    <div
+      class="absolute top-1/2 left-1/2 w-72 h-72 bg-white/5 rounded-full blur-2xl -translate-x-1/2 -translate-y-1/2 animate-bounce-slow">
+    </div>
+
+    <div class="relative z-20 max-w-5xl px-6">
+      <span
+        class="inline-block bg-white/20 backdrop-blur-md px-5 py-2 rounded-full text-sm font-semibold mb-6 animate-fade-in">
+        🌟 Premium Global Partner
+      </span>
+
+      <h1 class="text-5xl md:text-6xl lg:text-8xl font-extrabold mb-6 leading-tight text-white animate-slide-up">
+        Elevate Your Travel & Forex Experience
+      </h1>
+
+      <p
+        class="text-lg md:text-xl lg:text-2xl mb-12 text-white/90 max-w-3xl mx-auto leading-relaxed animate-fade-in-delay">
+        Seamless forex exchange, visa assistance, travel services, and pilgrimage support—all on one professional
+        platform designed for your peace of mind.
+      </p>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-6 animate-fade-in-delay">
+        <a href="#services"
+          class="bg-white text-black px-8 py-4 font-bold rounded-xl shadow-2xl transform duration-300 transition hover:-translate-y-2 hover:scale-105 hover:shadow-3xl">
+          Explore Services
+        </a>
+        <a href="#contact"
+          class="border-2 border-white px-8 py-4 rounded-xl font-bold text-white transition hover:bg-white hover:text-black hover:scale-105">
+          Contact Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="bg-slate-100 py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-primary text-center mb-14">
+        What We Offer
+      </h2>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+        <!-- Service Card -->
+        <div
+          class="group relative h-72 rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl">
+          <img src="./forex.webp" alt="Flight Tickets"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-4 right-4 text-right text-white max-w-[80%]">
+            <div class="w-12 h-12 mb-3 ml-auto rounded-lg bg-white/20 backdrop-blur flex items-center justify-center">
+              💱
+            </div>
+            <h3 class="font-bold text-lg leading-tight">Forex Services</h3>
+            <p class="text-sm text-white/90">
+              Competitive exchange rates with secure transactions.
+            </p>
+          </div>
+        </div>
+
+
+
+        <div
+          class="group relative h-72 rounded-xl overflow-hidden shadow-lg duration-300 transition hover:-translate-y-2 hover:shadow-2xl">
+          <img src="./visa.webp" alt="Flight Tickets"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-4 right-4 text-right text-white max-w-[80%]">
+            <div class="w-12 h-12 mb-3 ml-auto rounded-lg bg-white/20 backdrop-blur flex items-center justify-center">
+              🛂
+            </div>
+            <h3 class="font-bold text-lg leading-tight">Visa Assistance</h3>
+            <p class="text-sm text-white/90">
+              Tourist, business & student visa processing.
+            </p>
+          </div>
+        </div>
+
+
+
+        <div
+          class="group relative h-72 rounded-xl overflow-hidden shadow-lg duration-300 transition hover:-translate-y-2 hover:shadow-2xl">
+          <img src="./f.webp" alt="Flight Tickets"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-4 right-4 text-right text-white max-w-[80%]">
+            <div class="w-12 h-12 mb-3 ml-auto rounded-lg bg-white/20 backdrop-blur flex items-center justify-center">
+              ✈️
+            </div>
+            <h3 class="font-bold text-lg leading-tight">Flight Tickets</h3>
+            <p class="text-sm text-white/90">
+              Domestic & international bookings
+            </p>
+          </div>
+        </div>
+
+
+
+        <div
+          class="group relative h-72 rounded-xl overflow-hidden shadow-lg duration-300 transition hover:-translate-y-2 hover:shadow-2xl">
+          <img src="./hbooking.webp" alt="Flight Tickets"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-4 right-4 text-right text-white max-w-[80%]">
+            <div class="w-12 h-12 mb-3 ml-auto rounded-lg bg-white/20 backdrop-blur flex items-center justify-center">
+              🏨
+            </div>
+            <h3 class="font-bold text-lg leading-tight">Hotel Booking</h3>
+            <p class="text-sm text-white/90">
+              Verified hotels worldwide.
+            </p>
+          </div>
+        </div>
+
+
+
+        <div
+          class="group relative h-72 rounded-xl overflow-hidden shadow-lg duration-300 transition hover:-translate-y-2 hover:shadow-2xl">
+          <img src="./insurance.webp" alt="Flight Tickets"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-4 right-4 text-right text-white max-w-[80%]">
+            <div class="w-12 h-12 mb-3 ml-auto rounded-lg bg-white/20 backdrop-blur flex items-center justify-center">
+              🛡️
+            </div>
+            <h3 class="font-bold text-lg leading-tight">Insurance</h3>
+            <p class="text-sm text-white/90">
+              Secure travel insurance plans.
+            </p>
+          </div>
+        </div>
+
+
+
+        <div
+          class="group relative h-72 rounded-xl overflow-hidden shadow-lg duration-300 transition hover:-translate-y-2 hover:shadow-2xl">
+          <img src="./attestation.webp" alt="Flight Tickets"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-4 right-4 text-right text-white max-w-[80%]">
+            <div class="w-12 h-12 mb-3 ml-auto rounded-lg bg-white/20 backdrop-blur flex items-center justify-center">
+              📄
+            </div>
+            <h3 class="font-bold text-lg leading-tight">Attestation</h3>
+            <p class="text-sm text-white/90">
+              Fast certificate attestation.
+            </p>
+          </div>
+        </div>
+
+
+
+
+        <div
+          class="group relative h-72 rounded-xl overflow-hidden shadow-lg duration-300 transition hover:-translate-y-2 hover:shadow-2xl">
+          <img src="./stamping.webp" alt="Flight Tickets"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-4 right-4 text-right text-white max-w-[80%]">
+            <div class="w-12 h-12 mb-3 ml-auto rounded-lg bg-white/20 backdrop-blur flex items-center justify-center">
+              🖋️
+            </div>
+            <h3 class="font-bold text-lg leading-tight">Stamping</h3>
+            <p class="text-sm text-white/90">
+              Authorized document stamping.
+            </p>
+          </div>
+        </div>
+
+
+
+
+        <div
+          class="group relative h-72 rounded-xl overflow-hidden shadow-lg duration-300 transition hover:-translate-y-2 hover:shadow-2xl">
+          <img src="./hajj.webp" alt="Flight Tickets"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-4 right-4 text-right text-white max-w-[80%]">
+            <div class="w-12 h-12 mb-3 ml-auto rounded-lg bg-white/20 backdrop-blur flex items-center justify-center">
+              🕋
+            </div>
+            <h3 class="font-bold text-lg leading-tight">Hajj & Umrah</h3>
+            <p class="text-sm text-white/90">
+              Well-organized pilgrimage packages.
+            </p>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- STATS -->
+  <section class="bg-gradient-to-r from-secondary to-primary text-white py-16">
+    <div class="max-w-6xl mx-auto px-4 grid gap-8 md:grid-cols-3 text-center">
+      <div>
+        <h3 class="text-4xl font-bold">Since 2024</h3>
+        <p>Serving Customers Worldwide</p>
+      </div>
+      <div>
+        <h3 class="text-4xl font-bold">1000+</h3>
+        <p>Successful Cases</p>
+      </div>
+      <div>
+        <h3 class="text-4xl font-bold">Trusted</h3>
+        <p>Growing Client Base</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-24 bg-gradient-to-b from-slate-50 to-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Why Choose Us</h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Established in 2024, GlobalWay Services delivers reliable, transparent,
+          and customer-focused travel, forex, and documentation solutions worldwide.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-t-4 border-secondary animate-scaleIn"
+          style="animation-delay: 0.1s">
+          <div class="text-4xl mb-4">✅</div>
+          <h3 class="text-xl font-bold text-primary mb-3">Trusted & Reliable</h3>
+          <p class="text-gray-600">Years of experience serving thousands of satisfied customers worldwide.</p>
+        </div>
+        <div
+          class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-t-4 border-secondary animate-scaleIn"
+          style="animation-delay: 0.2s">
+          <div class="text-4xl mb-4">🔒</div>
+          <h3 class="text-xl font-bold text-primary mb-3">Secure & Transparent</h3>
+          <p class="text-gray-600">Complete transparency in all transactions with secure payment methods.</p>
+        </div>
+        <div
+          class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-t-4 border-secondary animate-scaleIn"
+          style="animation-delay: 0.3s">
+          <div class="text-4xl mb-4">🚀</div>
+          <h3 class="text-xl font-bold text-primary mb-3">Fast & Efficient</h3>
+          <p class="text-gray-600">Quick processing and instant support for all your travel needs.</p>
+        </div>
+        <div
+          class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-t-4 border-secondary animate-scaleIn"
+          style="animation-delay: 0.4s">
+          <div class="text-4xl mb-4">🌐</div>
+          <h3 class="text-xl font-bold text-primary mb-3">Global Network</h3>
+          <p class="text-gray-600">Connected with partners worldwide for seamless international services.</p>
+        </div>
+        <div
+          class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-t-4 border-secondary animate-scaleIn"
+          style="animation-delay: 0.5s">
+          <div class="text-4xl mb-4">💬</div>
+          <h3 class="text-xl font-bold text-primary mb-3">Expert Support</h3>
+          <p class="text-gray-600">24/7 customer support team ready to help with any inquiries.</p>
+        </div>
+        <div
+          class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-t-4 border-secondary animate-scaleIn"
+          style="animation-delay: 0.6s">
+          <div class="text-4xl mb-4">💰</div>
+          <h3 class="text-xl font-bold text-primary mb-3">Best Rates</h3>
+          <p class="text-gray-600">Competitive forex rates and affordable service packages.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCLAIMER -->
+  <section class="bg-slate-100 py-4 text-sm text-center text-gray-600">
+    *Visa approvals are subject to authorities. Forex rates may vary.
+  </section>
+
+
+  <!-- CTA SECTION -->
+  <section class="bg-gradient-to-r from-secondary to-primary text-white py-16">
+    <div class="max-w-6xl mx-auto px-4 text-center animate-fadeIn">
+      <h2 class="text-4xl font-bold mb-4">Ready to Get Started?</h2>
+      <p class="text-xl mb-8 text-white/90">Join thousands of satisfied customers using GlobalWay Services</p>
+      <a href="https://wa.me/918086612704"
+        class="inline-block bg-white text-primary px-10 py-3 rounded-lg font-bold hover:bg-slate-100 hover:scale-105 transition duration-300 shadow-lg">
+        Contact Us Now
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark text-gray-300 py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <!-- Brand -->
+        <div class="animate-slideUp" style="animation-delay: 0.1s">
+          <h3 class="text-white font-bold text-lg mb-3">GlobalWay</h3>
+          <p class="text-sm text-gray-400">Elevating travel and forex experiences worldwide.</p>
+        </div>
+
+        <!-- Services -->
+        <div class="animate-slideUp" style="animation-delay: 0.2s">
+          <h3 class="text-white font-bold text-lg mb-3">Services</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#services" class="text-gray-400 hover:text-secondary transition">Forex Exchange</a></li>
+            <li><a href="#services" class="text-gray-400 hover:text-secondary transition">Visa Assistance</a></li>
+            <li><a href="#services" class="text-gray-400 hover:text-secondary transition">Travel Services</a></li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div class="animate-slideUp" style="animation-delay: 0.3s">
+          <h3 class="text-white font-bold text-lg mb-3">Company</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#about" class="text-gray-400 hover:text-secondary transition">About Us</a></li>
+            <li><a href="#contact" class="text-gray-400 hover:text-secondary transition">Contact</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-secondary transition">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Connect -->
+        <div class="animate-slideUp" style="animation-delay: 0.4s">
+          <h3 class="text-white font-bold text-lg mb-3">Connect</h3>
+          <p class="text-sm text-gray-400 mb-4">Follow us on social media</p>
+          <div class="flex gap-3">
+            <a href="https://www.facebook.com/share/1DgQUgrY1b/?mibextid=wwXIfr"
+              class="w-10 h-10 bg-secondary/20 hover:bg-secondary text-white rounded-full flex items-center justify-center transition">f</a>
+            <a href="https://www.instagram.com/hotlinesolutions?igsh=ZHlvMjRqbWNjbXo4"
+              class="w-10 h-10 bg-secondary/20 hover:bg-secondary text-white rounded-full flex items-center justify-center transition">
+              <i class="fa-brands fa-instagram text-lg"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/hotline-soutions/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnOJHHDBsNdSOiU-L61ifkqYI2SLN3eWn0LYoUXeSpIsaCl4l6N1CMEm7LWHg_aem_ZyxQRTca8nGyTYXYnbcFlA"
+              class="w-10 h-10 bg-secondary/20 hover:bg-secondary text-white rounded-full flex items-center justify-center transition">in</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom -->
+      <div class="border-t border-gray-700 pt-8 text-center text-sm text-gray-500">
+        <p>© 2024 GlobalWay Services. All rights reserved.</p>
+        <p class="mt-2">*Visa approvals are subject to authorities. Forex rates may vary.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP -->
+  <a href="https://wa.me/918086612704" class="fixed z-50 bottom-5 right-5
+          hover:scale-110 hover:shadow-3xl transition duration-300">
+    <img src="./whatsapp.webp" alt="WhatsApp" width="60" height="60" class="w-16 h-16">
+  </a>
+
+
+</body>
+
+</html>
